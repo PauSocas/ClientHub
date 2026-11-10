@@ -1,0 +1,13 @@
+package com.paula.clienthub.repository;
+
+import com.paula.clienthub.model.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
+    List<Cliente> findByNombreContainingIgnoreCase(String nombre);
+
+    boolean existsByDni(String dni);
+}
